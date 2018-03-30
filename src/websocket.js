@@ -30,7 +30,7 @@ const MessageEvent = function (target, data) {
  *
  * @param {String} url
  */
-const WebSocket = function (url, protocols) {
+const WebSocket = function (url, protocols, options) {
 
     if (!(this instanceof WebSocket)) {
         throw new TypeError("Constructor WebSocket requires 'new'.");
@@ -47,7 +47,7 @@ const WebSocket = function (url, protocols) {
     this.onerror = null;
     this.onmessage = null;
 
-    const ws = new NodeWebSocket(url, protocols);
+    const ws = new NodeWebSocket(url, protocols, options);
 
     // DOM Level 2
     const eventListeners = {
